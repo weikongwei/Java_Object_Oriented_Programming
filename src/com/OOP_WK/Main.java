@@ -13,18 +13,24 @@ public class Main {
         System.out.println(textBox2.text);
         System.out.println("--------------------");
 
-        // Procedural Programming - Calculating Wage
+        // Class 6 - Counter Example: Procedural Programming - Calculating Wage
         int baseSalary = 50_000;
         int extraHours = 10;
         int hourlyrate = 20;
         System.out.println(calculateWage(baseSalary,extraHours,hourlyrate));
         System.out.println("---------------------");
 
-        // Encapsulation; Getters and Setters - Calculating Wage
-        var employee1 = new Employee();
-        employee1.setHourlyRate(20);
-        employee1.setBaseSalary(50_000);
+        // Class 7 & 8 - Encapsulation; Getters and Setters - Calculating Wage
+        var employee1 = new Employee(50_000, 20);
+        System.out.println(Employee.numberOfEmployees);
         System.out.println(employee1.calculateWage(10));
+
+        // Class 11 - Reducing Coupling
+        var browser = new Browser();
+        browser.navigate("asdf.com"); // Hide complexity in class itself,
+                                            // don't expose the unnecessary in main program
+
+
 
     }
 
