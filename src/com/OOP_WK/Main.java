@@ -1,5 +1,6 @@
 package com.OOP_WK;
 
+// Section 1&2 : OOP - Class
 public class Main {
 
     public static void main(String[] args) {
@@ -30,6 +31,10 @@ public class Main {
         browser.navigate("asdf.com"); // Hide complexity in class itself,
                                             // don't expose the unnecessary in main program
 
+        // Mortgage Calculator in OOD Format
+        var mortgage = new Mortgage();
+        mortgage.printMortgage();
+        mortgage.printPaymentSchedule();
 
 
     }
@@ -42,3 +47,11 @@ public class Main {
         return baseSalary + extraHours*hourlyrate;
     }
 }
+
+
+
+
+
+
+
+
