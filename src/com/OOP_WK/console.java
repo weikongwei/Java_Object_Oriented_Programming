@@ -26,7 +26,4 @@ public class console {
         return scanner.nextDouble();    // return the scanner to read input without putting into any variable
     }
 
-
-
-
 }

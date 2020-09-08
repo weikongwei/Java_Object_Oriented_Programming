@@ -6,22 +6,28 @@ import java.text.NumberFormat;
 
 // Class 6 - Extracting MortgageReport Class
 public class MortgageReport {
+    // MortgageReport objects are to get mortgage key factors by calling console class
+    // and generate reports by using MortgageCalculator objects
+
     // Class 8 - Moving Away Fromm Static Members
     private int principal;
     private float annualInterest;
     private byte years;
     private MortgageCalculator calculator;
+    private final NumberFormat currency;
 
+    // Constructor can only initialize instance variables, not static ones
     public MortgageReport(){
         setPrincipal();
         setAnnualInterest();
         setYears();
         this.calculator = new MortgageCalculator(principal, annualInterest, years);
+        currency = NumberFormat.getCurrencyInstance();
     }
 
     public void printMortgage() {
         double mortgage = calculator.calculateMortgage(annualInterest);
-        String mortgageFormatted = NumberFormat.getCurrencyInstance().format(mortgage);
+        String mortgageFormatted = currency.format(mortgage);
         System.out.println();
         System.out.println("MORTGAGE");
         System.out.println("--------");
@@ -33,13 +39,9 @@ public class MortgageReport {
         System.out.println("PAYMENT SCHEDULE");
         System.out.println("----------------");
         // Class 11 - Extract getBalance
-        for (double balance : calculator.getbalances()) {
-            System.out.println(NumberFormat.getCurrencyInstance().format(balance));
+        for (double balance : calculator.getBalances()) {
+            System.out.println(currency.format(balance));
         }
-    }
-
-    public int getPrincipal() {
-        return principal;
     }
 
     public void setPrincipal() {
@@ -52,10 +54,6 @@ public class MortgageReport {
 
     public void setAnnualInterest() {
         this.annualInterest = (float) console.readNumber("Annual Interest Rate: ", 1, 30);
-    }
-
-    public byte getYears() {
-        return years;
     }
 
     public void setYears() {
