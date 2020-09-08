@@ -1,19 +1,41 @@
+// Section 3 - Refactoring Towards an OOD
+
 package com.OOP_WK;
 
-// Section 3Refactoring Towards an OOD
 import java.text.NumberFormat;
 
+// Class 6 - Extracting MortgageReport Class
 public class MortgageReport {
-    final byte MONTHS_IN_YEAR = 12;
-    final byte PERCENT = 100;
+    // Class 8 - Moving Away Fromm Static Members
     private int principal;
     private float annualInterest;
     private byte years;
+    private MortgageCalculator calculator;
 
     public MortgageReport(){
         setPrincipal();
         setAnnualInterest();
         setYears();
+        this.calculator = new MortgageCalculator(principal, annualInterest, years);
+    }
+
+    public void printMortgage() {
+        double mortgage = calculator.calculateMortgage(annualInterest);
+        String mortgageFormatted = NumberFormat.getCurrencyInstance().format(mortgage);
+        System.out.println();
+        System.out.println("MORTGAGE");
+        System.out.println("--------");
+        System.out.println("Monthly Payments: " + mortgageFormatted);
+    }
+
+    public void printPaymentSchedule() {
+        System.out.println();
+        System.out.println("PAYMENT SCHEDULE");
+        System.out.println("----------------");
+        // Class 11 - Extract getBalance
+        for (double balance : calculator.getbalances()) {
+            System.out.println(NumberFormat.getCurrencyInstance().format(balance));
+        }
     }
 
     public int getPrincipal() {
@@ -38,24 +60,5 @@ public class MortgageReport {
 
     public void setYears() {
         this.years = (byte) console.readNumber("Period (Years): ", 1, 30);
-    }
-
-    public void printMortgage() {
-        double mortgage = MortgageCalculator.calculateMortgage(MONTHS_IN_YEAR, PERCENT, principal, annualInterest, years);
-        String mortgageFormatted = NumberFormat.getCurrencyInstance().format(mortgage);
-        System.out.println();
-        System.out.println("MORTGAGE");
-        System.out.println("--------");
-        System.out.println("Monthly Payments: " + mortgageFormatted);
-    }
-
-    public void printPaymentSchedule() {
-        System.out.println();
-        System.out.println("PAYMENT SCHEDULE");
-        System.out.println("----------------");
-        for (short month = 1; month <= years * MONTHS_IN_YEAR; month++) {
-            double balance = MortgageCalculator.calculateBalance(MONTHS_IN_YEAR, PERCENT, principal, annualInterest, years, month);
-            System.out.println(NumberFormat.getCurrencyInstance().format(balance));
-        }
     }
 }

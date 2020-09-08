@@ -1,3 +1,5 @@
+// Section 3 - Refactoring Towards an OOD
+
 package com.OOP_WK;
 
 import java.util.Scanner;

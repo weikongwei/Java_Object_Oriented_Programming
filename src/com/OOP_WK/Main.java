@@ -31,6 +31,7 @@ public class Main {
 //        browser.navigate("asdf.com"); // Hide complexity in class itself,
 //                                            // don't expose the unnecessary in main program
 
+        // Section 3 - Refactoring Towards an OOD
         // Mortgage Calculator in OOD Format
         var mortgageReport = new MortgageReport();
         mortgageReport.printMortgage();
