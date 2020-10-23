@@ -36,11 +36,12 @@ public class Employee {
         return calculateWage(0);
     }
 
+    // Classes - Class 8
     // Set method to private, so it reduces the privacy
     private void setBaseSalary(int baseSalary) {
         if (baseSalary <= 0)
-            throw new IllegalArgumentException("Salary cannot be 0 or less."); // This will terminate the program with
-                                                                                // an Exception message.
+            throw new IllegalArgumentException("Salary cannot be 0 or less.");
+            // This will terminate the program with an Exception message.
         this.baseSalary = baseSalary;
     }
 

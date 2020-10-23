@@ -7,6 +7,8 @@ import java.util.Scanner;
 public class console {
     // Class 4 - Extracting the console class
     private static Scanner scanner = new Scanner(System.in);
+    // Static variables belongs to the class. Instance variables belongs to each objects.
+    // Static fucntions can only use static variables since there is no objects involved.
 
     // Setting the method to static so we can access the method without creating objects.
     public static double readNumber(String prompt, double min, double max) {

@@ -44,7 +44,7 @@ public class MortgageCalculator {
 
     // Class 11 - Extract getBalance
     public double[] getBalances(){
-        var balances = new double[years * MONTHS_IN_YEAR];
+        var balances = new double[(int) getNumberOfPayments()];
         for (short month = 1; month <= balances.length; month++)
             balances[month - 1] = this.calculateBalance(month);
 
