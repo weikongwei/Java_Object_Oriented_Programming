@@ -3,6 +3,8 @@ package com.OOP_WK;
 
 import org.w3c.dom.Text;
 
+import javax.swing.*;
+
 public class Main {
     ////////////////////////////////
     // Section 1 & 2 : OOP - Class//
@@ -81,10 +83,25 @@ public class Main {
 //        System.out.println(point2.hashCode());
 
         // Inheritance - class 9 Polymorphism
-        UIControl[] controls = {new TextBox(), new CheckBox()};
-        for(var control: controls) {
-            control.render();
-        }
+//        UIControl[] controls = {new TextBox(), new CheckBox()};
+//        for(var control: controls) {
+//            control.render();
+//        }
+
+
+        // Interfaces Class - 6 - Constructor Injection (Poor Man's Dependency Injection)
+//        var calculator = new TaxCalculator2018(100_000);
+//        var taxReport = new TaxReport(TaxCalculator calculator);
+//        taxReport.show();
+
+        // Interfaces Class - 7 - Setter Injection
+//        taxReport.setCalculator(new TaxCalculator2019(200_000));
+
+        // Interfaces Class - 8 - Method Injection
+        var report = new TaxReport();
+        report.show(new TaxCalculator2019(100000));
+
+
     }
 
     // Inheritance - class 7 Upcasting and Downcasting
