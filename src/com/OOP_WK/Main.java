@@ -91,15 +91,15 @@ public class Main {
 
         // Interfaces Class - 6 - Constructor Injection (Poor Man's Dependency Injection)
 //        var calculator = new TaxCalculator2018(100_000);
-//        var taxReport = new TaxReport(TaxCalculator calculator);
-//        taxReport.show();
+        var taxReport = new TaxReport(new TaxCalculator2018(100_000));
+        taxReport.show();
 
         // Interfaces Class - 7 - Setter Injection
 //        taxReport.setCalculator(new TaxCalculator2019(200_000));
 
         // Interfaces Class - 8 - Method Injection
-        var report = new TaxReport();
-        report.show(new TaxCalculator2019(100000));
+//        var report = new TaxReport();
+//        report.show(new TaxCalculator2019(100000));
 
 
     }
